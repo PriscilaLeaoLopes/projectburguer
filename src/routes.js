@@ -1,9 +1,14 @@
-import { Router } from "express";
+import { Router } from 'express'
 
-const routes = new Router();
 
-routes.get("/", async (request, response) => {
-  return response.json({ message: "hello word" });
-});
 
-export default routes;
+import UserController from './app/controllers/UserController'
+import SessionController from './app/controllers/SessionController'
+
+const routes = new Router()
+
+routes.post('/users', UserController.store) 
+
+routes.post('/sessions', SessionController.store)
+    
+export default routes
