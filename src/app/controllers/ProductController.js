@@ -1,8 +1,5 @@
 import * as Yup from 'yup'
 import Product from '../models/Product'
-import { request, response } from 'express'
-
-
 
 class ProductController {
     async store(request, response) {
@@ -29,21 +26,19 @@ class ProductController {
 
       })
 
-      return response.json(product)
-    } catch (err) {
-        console.log(err)
-    }
-}
 
+    return response.json(product)
+
+    }
+    
     async index(request, response) {
         const products = await Product.findAll()
 
-        console.log(request.userId)
+         console.log(request.userId)
         return response.json(products)
     
 }
-    
-}
 
+}
 
 export default new ProductController()
